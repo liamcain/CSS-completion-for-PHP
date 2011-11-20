@@ -1,0 +1,12 @@
+[
+  { "keys": ["#"], "command": "display_css", 
+  "context": [
+      {
+        "operand": "source.php",
+        "operator": "equal", 
+        "match_all": true, 
+        "key": "selector"
+      }
+    ]
+  }
+]
