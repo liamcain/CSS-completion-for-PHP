@@ -2,7 +2,7 @@
   { "keys": ["#"], "command": "display_css", 
   "context": [
       {
-        "operand": "source.php",
+        "operand": "source.php, text.html",
         "operator": "equal", 
         "match_all": true, 
         "key": "selector"

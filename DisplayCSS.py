@@ -23,20 +23,16 @@ class DisplayCssCommand(sublime_plugin.TextCommand):
         this_dir = this_file[:(dir_len + 1)] # + 1 for the '/'
         dir_files = os.listdir(this_dir)
 
+        del completions[:]
+
         for f in dir_files:
             if ".css" in f:
                 filename = this_dir + f
-                break
-
-        with open(filename, 'r') as f:
-            read_data = f.read()
-
-        classes_ids = re.findall("\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*|\#-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*", read_data)
-
-        del completions[:]
-
-        for c in classes_ids:
-            completions.append(c)
+                with open(filename, 'r') as f:
+                    read_data = f.read()
+                classes_ids = re.findall("\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*|\#-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*", read_data)
+                for c in classes_ids:
+                    completions.append(c[1:])
     
 
 class FillAutoComplete(sublime_plugin.EventListener):
