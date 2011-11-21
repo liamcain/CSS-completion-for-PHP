@@ -33,10 +33,8 @@ class DisplayCssCommand(sublime_plugin.TextCommand):
                 classes_ids = re.findall("\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*|\#-?[_a-zA-Z]+[_a-zA-Z0-9-]*", read_data)
                 for c in classes_ids:
                     completions.append(c[1:])
-        
-        completions = list(set(completions))
     
 
 class FillAutoComplete(sublime_plugin.EventListener):
     def on_query_completions(self, view, prefix, locations):
-        return [(x, x) for x in completions]
+        return [(x, x) for x in list(set(completions))]
