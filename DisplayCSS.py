@@ -30,7 +30,7 @@ class DisplayCssCommand(sublime_plugin.TextCommand):
                 filename = this_dir + f
                 with open(filename, 'r') as f:
                     read_data = f.read()
-                classes_ids = re.findall("\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*|\#-?[_a-zA-Z]+[_a-zA-Z0-9-]*\s*", read_data)
+                classes_ids = re.findall("\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*|\#-?[_a-zA-Z]+[_a-zA-Z0-9-]*", read_data)
                 for c in classes_ids:
                     completions.append(c[1:])
         
